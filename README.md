@@ -1,50 +1,67 @@
-# Welcome to your Expo app 👋
+# **Winners BP**
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> **This is a repo for the project `Winners BP` based on `Expo`.**
 
-## Get started
+---
 
-1. Install dependencies
+## REQUIREMENTS
 
-   ```bash
-   npm install
-   ```
+- [`Node.js`](https://nodejs.org/en/)
+- [`EAS CLI`](https://github.com/expo/eas-cli/)
+- [`Expo CLI`](https://docs.expo.dev/workflow/expo-cli/)
+- [`Expo Go`](https://expo.dev/client)
+- [`Expo Orbit`](https://expo.dev/orbit) (Optional)
+- [`OpenAPI TypeScript`](https://openapi-ts.pages.dev/)
 
-2. Start the app
+## START
 
-   ```bash
-    npx expo start
-   ```
+### 0. First of all, let's install the [**`Expo CLI`**](https://docs.expo.dev/workflow/expo-cli/) globally.
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```sh
+npm install expo-cli --location=global
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 1. Clone the project from [`BitBucket`](https://bitbucket.org/dashboard/repositories)
 
-## Learn more
+```sh
+$ git clone git@bitbucket.org:TRIAD-Advertising/winners-bp-app.git
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 2. Install dependencies from `package.json`
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```sh
+$ npm install
+```
 
-## Join the community
+> To install a new dependency, use the **`npx expo install`** command instead of `npm install`. **Expo** will choose a version that is compatible with the project.
 
-Join our community of developers creating universal apps.
+```sh
+npx expo install <package-name>
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+> If you're getting npm error _`ERESOLVE could not resolve`_, run above command with the `--force` flag:
+
+```sh
+npx expo install <package-name> -- --force
+```
+
+> Diagnose issues with the project
+
+```sh
+npx expo-doctor@latest
+```
+
+### 2. Generate native `ios` and `android` directories
+
+```sh
+# The --clean flag will delete any existing native directories before generating
+npx expo prebuild --clean
+```
+
+### 3. Build your native project
+
+```sh
+# The --device flag allows you to pick a device to run the app on
+npx expo run:ios --device
+npx expo run:android --device
+```
